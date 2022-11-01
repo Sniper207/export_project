@@ -24,79 +24,24 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<a class="btn btn-primary" href="">Add user</a>
-				<br>
-				<br>
-				<table class="table table-hover table-bordered table-striped">
-					<thead>
-						<tr>
-							<th>id</th>
-							<th>username</th>
-							<th>email</th>
-							<th>address</th>
-							<th>gender</th>
-							<th>priv</th>
-							<th>controlls</th>
-						</tr>
-					</thead>
-					<tbody>
-			<?php 
+				<?php 
 
-			include "functions/connect.php";
-			$select = "SELECT * FROM users";
-			$query = $conn -> query($select);
-			foreach($query as $user) {
-			 ?>
-						<tr>
-							<td><?= $user['id'] ?></td>
-							<td><?= $user['username'] ?></td>
-							<td><?= $user['email'] ?></td>
-							<td><?= $user['address'] ?></td>
-							<td><?php 
+					if (!isset($_GET['action'])) {
 
-							if ($user['gender'] == 0 ) {
-								echo "Male";
-							} else {
-								echo "Female";
-							}
+						include "design/user_view.php";
 
-							 ?></td>
-							<td><?= $user['priv'] == 0 ? "Admin" : "user" ; ?></td>
-	<td>
-		<div class="btn btn-group btn-group-sm">
-			<a class="btn btn-primary" href="">Edit</a>
-			<!-- <a class="btn btn-danger" href="functions/delete_user.php?id=<?= $user['id'] ?>">Delete</a> -->
-			<!-- Button trigger modal -->
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#<?= $user['id']  ?>">
-  Delete
-</button>
+					} elseif($_GET['action'] == 'add') {
 
-<!-- Modal -->
-<div class="modal fade" id="<?= $user['id']  ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        are you sure you want to delete user <span style="font-weight: bold;color:red"><?= $user['username'] ?></span>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="functions/delete_user.php?id=<?= $user['id'] ?>" class="btn btn-danger">confirm</a>
-      </div>
-    </div>
-  </div>
-</div>
-		</div>
-	</td>
-						</tr>
-			<?php } ?>
-					</tbody>
-				</table>
+						include "design/user_add_form.php";
+
+					} elseif($_GET['action'] == 'edit') {
+
+						include "design/user_edit_form.php";
+						
+					}
+
+
+				 ?>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->
