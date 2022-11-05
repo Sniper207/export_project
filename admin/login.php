@@ -1,3 +1,15 @@
+
+<?php 
+
+	session_start();
+
+	if (isset($_SESSION['login'])){
+		header("location: index.php");
+		exit();
+	}
+
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +30,10 @@
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Log in</div>
 				<div class="panel-body">
-					<form role="form">
+					<form role="form" method="post" action="functions/loginCheck.php">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+								<input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -31,15 +43,29 @@
 									<input name="remember" type="checkbox" value="Remember Me">Remember Me
 								</label>
 							</div>
-							<a href="index.html" class="btn btn-primary">Login</a></fieldset>
+							<button type="submit" class="btn btn-primary">Login</button>
+						</fieldset>
 					</form>
 				</div>
 			</div>
+			<div>
+
+		<?php 
+
+			if (isset($_SESSION['error'])){
+				echo $_SESSION['error'];
+				unset($_SESSION['error']);
+			}
+
+		 ?>
+
+			</div>
 		</div><!-- /.col-->
+
 	</div><!-- /.row -->	
 	
 
 <script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
