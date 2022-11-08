@@ -1,7 +1,8 @@
 <?php 
-
+	$current = "products";
 	include "includes/header.php";
 	include "includes/sidebar.php";
+	
 
  ?>
 	

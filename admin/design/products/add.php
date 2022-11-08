@@ -1,15 +1,17 @@
-<form method="post" action="functions/products/insert.php">
+
+
+<form method="post" action="functions/products/insert.php" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleInputEmail1">name</label>
     <input type="text" name="name" value="" class="form-control" id="exampleInputEmail1">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">price</label>
-    <input type="email" name="price" value="" class="form-control" id="exampleInputEmail1" >
+    <input type="number" name="price" value="" class="form-control" id="exampleInputEmail1" >
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">sale</label>
-    <input type="email" name="sale" value="" class="form-control" id="exampleInputEmail1" >
+    <input type="number" name="sale" value="" class="form-control" id="exampleInputEmail1" >
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">image</label>

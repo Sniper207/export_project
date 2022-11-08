@@ -18,7 +18,7 @@
 					<tbody>
 			<?php 
 
-			include "functions/connect.php";
+			include_once "functions/connect.php";
 			$select = "SELECT * FROM users";
 			$query = $conn -> query($select);
 			foreach($query as $user) {

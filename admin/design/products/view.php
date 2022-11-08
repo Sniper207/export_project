@@ -18,7 +18,7 @@
 					<tbody>
 						<?php
 
-							include "functions/connect.php";
+							include_once "functions/connect.php";
 							$select = "SELECT * from products ";
 							$query = $conn -> query($select);
 							foreach ($query as $product) {
@@ -31,7 +31,7 @@
 							<td><?= $product['name']; ?></td>
 							<td><?= $product['price'];?> </td>
 							<td><?= $product['sale']; ?></td>
-							<td><?= $product['img'];?> </td>
+							<td><img style="width: 150px" src="images/<?= $product['img'];?>" alt=""> </td>
 							<td><?php 
 
 							$cat_id = $product['cat_id'];

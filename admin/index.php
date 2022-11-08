@@ -1,15 +1,8 @@
 <?php 
-	session_start();
-
-	if (!isset($_SESSION['login'])){
-		header("location: login.php");
-		exit();
-	}
-
-
+	$current = "index";
 	include "includes/header.php";
 	include "includes/sidebar.php";
-
+	
  ?>
 	
 		

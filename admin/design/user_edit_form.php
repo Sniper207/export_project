@@ -1,7 +1,7 @@
 
 <?php 
 
-  include 'functions/connect.php';
+  include_once 'functions/connect.php';
   $id = $_GET['id'];
   $select = "SELECT * FROM users WHERE id = $id";
   $query = $conn -> query($select);
